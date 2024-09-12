@@ -32,7 +32,7 @@ const mainFunc = () => {
 	const panel = document.querySelector("#panel");
 	const appbox = document.querySelector("#appbox");
 	panel.classList.add("panelShow");
-	appbox.classList.add("appboxFull");
+	appbox.classList.add("appboxShort");
 
 	// Loading items
 	for (let i = 0; i < data.icons.length; i++) {
@@ -62,8 +62,8 @@ const togglePanelView = () => {
 	panel.classList.toggle("panelShow");
 	panel.classList.toggle("panelHide");
 
-	appbox.classList.toggle("appboxFull");
 	appbox.classList.toggle("appboxShort");
+	appbox.classList.toggle("appboxFull");
 }
 
 panelBtnToggler.addEventListener("click", togglePanelView);

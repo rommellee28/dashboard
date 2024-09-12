@@ -161,11 +161,11 @@ body {
 }
 
 .appboxFull {
-	width: 85vw;
+	width: 100vw;
 }
 
 .appboxShort {
-	width: 100vw;
+	width: 85vw;
 }
 
 input[type="text"],
@@ -243,3 +243,13 @@ button[type="submit"]:hover {
 	}
 
 }
+
+/*@media (max-width: 500px) {
+	.panelShow {
+		width: 10vh;
+	}
+
+	.appboxShort {
+		width: 90w;
+	}
+}*/
