@@ -168,6 +168,10 @@ body {
 	width: 85vw;
 }
 
+.input-group {
+
+}
+
 input[type="text"],
 input[type="password"],
 input[type="search"] {
@@ -182,19 +186,20 @@ input[type="search"] {
 input[type="submit"],
 input[type="button"],
 button[type="submit"] {
-	height: 2.5rem;
-	border: solid .1rem gray;
-	border-radius: .25rem;
+	height: 2.4rem;
+	border: none;
+	border-radius: 0 .25rem .25rem 0;
 	padding: .5rem .75rem;
-	background-color: transparent;
-	color: gray;
+	background-color: gray;
+	color: #fff;
 	cursor: pointer;
+	margin-left: -2.55rem;
 }
 
 input[type="submit"]:hover,
 input[type="button"]:hover,
 button[type="submit"]:hover {
-	background-color: gray;
+	background-color: #343434;
 	color: #fff;
 }
 
@@ -244,12 +249,12 @@ button[type="submit"]:hover {
 
 }
 
-/*@media (max-width: 500px) {
+@media (max-width: 724px) {
 	.panelShow {
-		width: 10vh;
+		width: 8vh;
 	}
 
 	.appboxShort {
-		width: 90w;
+		width: 92w;
 	}
-}*/
+}
