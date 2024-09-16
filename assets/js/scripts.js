@@ -13,26 +13,29 @@ const mainFunc = () => {
 			"fa-solid",
 			"fa-regular",
 			"fa-regular",
-			"fa"
+			"fa-solid",
+			"fa-solid"
 		],
 		icons: [
 			"fa-home",
 			"fa-calendar",
 			"fa-bookmark",
-			"fa-chalkboard-user"
+			"fa-chalkboard-user",
+			"fa-music"
 		],
 		titles: [
 			"Home",
 			"Calendar",
 			"Links",
-			"Tutorials"
+			"Tutorials",
+			"Music"
 		]
 	}
 
 	const panel = document.querySelector("#panel");
 	const appbox = document.querySelector("#appbox");
-	panel.classList.add("panelShow");
-	appbox.classList.add("appboxShort");
+	panel.classList.add("panelDefault");
+	appbox.classList.add("appboxDefault");
 
 	// Loading items
 	for (let i = 0; i < data.icons.length; i++) {
@@ -42,7 +45,7 @@ const mainFunc = () => {
 
 		div.classList.add("panelItem");
 		icon.classList.add("icon", data.type[i], data.icons[i]);
-		text.classList.add("panelTitle");
+		text.classList.add("panelItemTitle");
 		text.innerText = data.titles[i];
 
 		div.appendChild(icon);
@@ -57,13 +60,13 @@ window.onload = mainFunc;
 
 /* NEXT SECTION OF THE SCRIPT - SECOND SECTION - BUTTON TOGGLER FOR PANEL SHOW */
 
-const panelBtnToggler = document.querySelector("#panelBtnToggler");
-const togglePanelView = () => {
-	panel.classList.toggle("panelShow");
-	panel.classList.toggle("panelHide");
+const panelBtnToggle = document.querySelector("#panelBtnToggle");
+const panelToggle = () => {
+	panel.classList.toggle("panelDefault");
+	panel.classList.toggle("panelToggled");
 
-	appbox.classList.toggle("appboxShort");
-	appbox.classList.toggle("appboxFull");
+	appbox.classList.toggle("appboxDefault");
+	appbox.classList.toggle("appboxToggled");
 }
 
-panelBtnToggler.addEventListener("click", togglePanelView);
+panelBtnToggle.addEventListener("click", panelToggle);

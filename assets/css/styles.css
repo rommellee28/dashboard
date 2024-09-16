@@ -47,20 +47,20 @@ body {
 	align-items: center;
 }
 
-#logobox {
+#brand {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	width: 15vw;
+	width: 20vw;
 	font-family: fantasy;
 	font-size: 1rem;
 }
 
-#logobox h1 {
+#sitename {
 	font-size: 1rem;
 }
 
-#title {
+#header {
 	display: flex;
 }
 
@@ -82,25 +82,29 @@ body {
 }
 
 #searchbox {
-	width: 70vw;
+	width: 60vw;
+}
+
+#searchbox form {
+	display: flex;
+}
+
+#myform {
+	width: 80%;
 }
 
 #userbox {
-	width: 15vw;
+	width: 20vw;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 }
 
-#userboxName {
+#username {
 	margin-right: 1rem;
 }
 
-#userboxImg {
-	
-}
-
-#userimg {
+#userImg {
 	display: flex;
 	width: 3rem;
 	border-radius: 2rem;
@@ -115,13 +119,16 @@ body {
 	box-sizing: border-box;
 	background-color: var(--sixth);
 	color: #fff;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
 }
 
-.panelShow {
-	width: 15vw;
+.panelDefault {
+	width: 200px;
 }
 
-.panelHide {
+.panelToggled {
 	width: 0vw;
 }
 
@@ -149,35 +156,33 @@ body {
 
 .icon {
 	margin-right: 1rem;
-	min-width: 10px;
+	min-width: 20px;
 	box-sizing: border-box;
 }
 
 #appbox {
 	background-color: var(--secondary);
 	height: 90vh;
-	padding: 1rem;
 	box-sizing: border-box;
+	padding: 1rem;
 }
 
-.appboxFull {
+.appboxDefault {
+	width: calc(100vw - 200px);
+}
+
+.appboxToggled {
 	width: 100vw;
-}
-
-.appboxShort {
-	width: 85vw;
-}
-
-.input-group {
-
 }
 
 input[type="text"],
 input[type="password"],
 input[type="search"] {
-	height: 2rem;
-	border: solid .1rem gray;
-	border-radius: .25rem;
+	box-sizing: border-box;
+	height: 2.4rem;
+	border: solid .1rem;
+	border-color: gray;
+	border-radius: .25rem 0 0 .25rem;
 	padding: .15rem .75rem;
 	outline: none;
 	font-size: .80rem;
@@ -186,6 +191,7 @@ input[type="search"] {
 input[type="submit"],
 input[type="button"],
 button[type="submit"] {
+	box-sizing: border-box;
 	height: 2.4rem;
 	border: none;
 	border-radius: 0 .25rem .25rem 0;
@@ -193,7 +199,6 @@ button[type="submit"] {
 	background-color: gray;
 	color: #fff;
 	cursor: pointer;
-	margin-left: -2.55rem;
 }
 
 input[type="submit"]:hover,
@@ -203,58 +208,93 @@ button[type="submit"]:hover {
 	color: #fff;
 }
 
-#myform {
-	width: 80%;
-}
-
 /* Responsive */
 
-@media (max-width: 838px) {
+@media (max-width: 1024px) {
 
-	#userbox {
-		width: 5vw;
-	}
-
-	#userboxName {
-		display: none;
-	}
-
-	#titleText {
-		display: none;
-	}
-
-	.panelShow {
-		width: 6vw;
-	}
-
-	.panelShow:hover {
+	#brand {
 		width: 20vw;
 	}
 
-	.panelHide {
-		width: 0;
+	#searchbox {
+		width: 60vw;
 	}
 
-	.appboxFull {
-		width: 100vw;
-	}
-
-	.appboxShort {
-		width: 94vw;
-	}
-
-	.panelTitle {
-		margin-left: 1rem;
+	#userbox {
+		width: 20vw;
 	}
 
 }
 
-@media (max-width: 724px) {
-	.panelShow {
-		width: 8vh;
+@media (max-width: 768px) {
+
+	#brand {
+		width: 30vw;
 	}
 
-	.appboxShort {
-		width: 92w;
+	#searchbox {
+		width: 40vw;
 	}
+
+	#userbox {
+		width: 30vw;
+	}
+
+	.panelDefault {
+		width: 50px;
+	}
+
+	.panelDefault:hover {
+		width: 250px;
+	}
+
+	.appboxDefault {
+		width: calc(100vw - 50px);
+	}
+
+	.panelToggled {
+		width: 0;
+	}
+
+	.appboxToggled {
+		width: 100vw;
+	}
+
+}
+
+@media (max-width: 475px) {
+
+	#brand {
+		width: 25vw;
+	}
+
+	#searchbox {
+		width: 50vw;
+	}
+
+	#userbox {
+		width: 25vw;
+	}
+
+	#sitename,
+	#username {
+		display: none;
+	}
+
+	.panelDefault {
+		width: 0;
+	}
+
+	.appboxDefault {
+		width: 100vw;
+	}
+
+	.panelToggled {
+		width: 100vw;
+	}
+
+	.appboxToggled {
+		display: none;
+	}
+
 }
