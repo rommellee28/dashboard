@@ -140,6 +140,7 @@ body {
 	margin-bottom: 1rem;
 	cursor: pointer;
 	display: flex;
+	justify-content: space-between;
 }
 
 .panelItem.active {
@@ -154,10 +155,23 @@ body {
 	background-color: gray;
 }
 
+.group {
+	display: flex;
+}
+
 .icon {
-	margin-right: 1rem;
-	min-width: 20px;
+	margin-right: 1.5rem;
+	width: 25px;
 	box-sizing: border-box;
+}
+
+.panelItemTitle {
+	width: 100px;
+}
+
+.panelItemMenu {
+	width: 25px;
+	text-align: right;
 }
 
 #appbox {

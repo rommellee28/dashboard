@@ -14,6 +14,7 @@ const mainFunc = () => {
 			"fa-regular",
 			"fa-regular",
 			"fa-solid",
+			"fa-solid",
 			"fa-solid"
 		],
 		icons: [
@@ -21,14 +22,23 @@ const mainFunc = () => {
 			"fa-calendar",
 			"fa-bookmark",
 			"fa-chalkboard-user",
-			"fa-music"
+			"fa-music",
+			"fa-list"
 		],
 		titles: [
 			"Home",
 			"Calendar",
 			"Links",
 			"Tutorials",
-			"Music"
+			"Music",
+			{
+				title: "Apps",
+				components: [
+						"Level 1",
+						"Level 2",
+						"Level 3"
+					]
+			}
 		]
 	}
 
@@ -39,17 +49,33 @@ const mainFunc = () => {
 
 	// Loading items
 	for (let i = 0; i < data.icons.length; i++) {
-		const div = document.createElement("div");
-		const icon = document.createElement("i");
-		const text = document.createElement("p");
+		const div = document.createElement("div"),
+			  group = document.createElement("div"),
+			  icon = document.createElement("i"),
+			  text = document.createElement("span");
 
 		div.classList.add("panelItem");
+		group.classList.add("group");
 		icon.classList.add("icon", data.type[i], data.icons[i]);
 		text.classList.add("panelItemTitle");
-		text.innerText = data.titles[i];
 
-		div.appendChild(icon);
-		div.appendChild(text);
+		div.appendChild(group);
+		group.appendChild(icon);
+		group.appendChild(text);
+
+		// Value if that element of the iteration is a simple string or an object
+		if (typeof data.titles[i] == "object") {
+
+			text.innerText = data.titles[i].title;
+			const arrow = document.createElement("i");
+			div.appendChild(arrow);
+			arrow.classList.add("panelItemMenu","fa-solid", "fa-caret-right");
+
+		} else {
+
+			text.innerText = data.titles[i];
+
+		}
 
 		panel.appendChild(div);
 	}
@@ -58,7 +84,7 @@ const mainFunc = () => {
 // Function load
 window.onload = mainFunc;
 
-/* NEXT SECTION OF THE SCRIPT - SECOND SECTION - BUTTON TOGGLER FOR PANEL SHOW */
+/* Toggle for panel */
 
 const panelBtnToggle = document.querySelector("#panelBtnToggle");
 const panelToggle = () => {
