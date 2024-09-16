@@ -42,28 +42,35 @@ const mainFunc = () => {
 		]
 	}
 
-	const panel = document.querySelector("#panel");
-	const appbox = document.querySelector("#appbox");
+	// Assign html elements to variables (left panel and main content)
+	const panel = document.querySelector("#panel"),
+		  appbox = document.querySelector("#appbox");
+
+	// Set default classes
 	panel.classList.add("panelDefault");
 	appbox.classList.add("appboxDefault");
 
 	// Loading items
 	for (let i = 0; i < data.icons.length; i++) {
-		const div = document.createElement("div"),
-			  group = document.createElement("div"),
-			  icon = document.createElement("i"),
-			  text = document.createElement("span");
 
+		// Structure variables
+		const div = document.createElement("div"),				// div item
+			  panelItemGroup = document.createElement("div"),	// group for icon and text
+			  icon = document.createElement("i"),				// font awesome icon
+			  text = document.createElement("span");			// item title
+
+		// Add classes
 		div.classList.add("panelItem");
-		group.classList.add("group");
+		panelItemGroup.classList.add("panelItemGroup");
 		icon.classList.add("icon", data.type[i], data.icons[i]);
 		text.classList.add("panelItemTitle");
 
-		div.appendChild(group);
-		group.appendChild(icon);
-		group.appendChild(text);
+		// Appending
+		div.appendChild(panelItemGroup);
+		panelItemGroup.appendChild(icon);
+		panelItemGroup.appendChild(text);
 
-		// Value if that element of the iteration is a simple string or an object
+		// Value if it's an object
 		if (typeof data.titles[i] == "object") {
 
 			text.innerText = data.titles[i].title;
@@ -77,9 +84,11 @@ const mainFunc = () => {
 
 		}
 
+		// Append element to the panel
 		panel.appendChild(div);
+
 	}
-}
+} /* End of function */
 
 // Function load
 window.onload = mainFunc;
@@ -88,11 +97,13 @@ window.onload = mainFunc;
 
 const panelBtnToggle = document.querySelector("#panelBtnToggle");
 const panelToggle = () => {
+
 	panel.classList.toggle("panelDefault");
 	panel.classList.toggle("panelToggled");
 
 	appbox.classList.toggle("appboxDefault");
 	appbox.classList.toggle("appboxToggled");
+
 }
 
 panelBtnToggle.addEventListener("click", panelToggle);
