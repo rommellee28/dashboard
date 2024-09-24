@@ -5,26 +5,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Dashboard</title>
 	<link rel="stylesheet" href="./assets/css/styles.css">
-
 </head>
 <body>
 
 	<div id="container">
 		<header id="topbar">
-			<div id="brand">
-				<div id="header">
+			<div id="topbar_header">
+				<div id="header_brand">
 					<i class="icon fa fa-r"></i>
-					<h1 id="sitename">My Site</h1>
+					<h1 id="brandname">My Site</h1>
 				</div>
 				<button class="btn" type="button" id="panelBtnToggle"><i class="fa fa-bars"></i></button>
 			</div>
-			<div id="searchbox">
+			<div id="topbar_search">
 				<form method="GET" action="https://www.google.com/search">
-					<input type="text" id="myform" name="q" placeholder="Buscar en Google">
+					<input type="text" id="googleSearch" name="q" placeholder="Buscar en Google">
 					<button type="submit" value="Buscar"><i class="fa fa-magnifying-glass"></i></button>
 				</form>
 			</div>
-			<div id="userbox">
+			<div id="topbar_userbox">
 				<div id="username">
 					Username
 				</div>
@@ -34,25 +33,16 @@
 			</div>
 		</header>
 
-		<div id="mainbox">
-			<aside id="panel">
-				<!-- Content modified by javascript -->
-			</aside>
-
-			<main id="appbox">
-				<!-- Content modified by javascript -->
-			</main>
+		<div id="mainboard">
+			<aside id="panel"></aside>
+			<main id="viewboard"></main>
 		</div>
 
-		<footer id="bottom">
-			<!-- This is the footer and has no use right now -->
-		</footer>
-		
 	</div>
 
 	<!-- Javascript -->
 	<script src="./assets/js/scripts.js"></script>
-	<script src="./modules/floating.js"></script>
+	<!-- <script src="./modules/floating.js"></script> -->
 	<script src="https://kit.fontawesome.com/5a3ea172af.js" crossorigin="anonymous"></script>
 </body>
 </html>

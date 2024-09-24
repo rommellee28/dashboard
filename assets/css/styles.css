@@ -5,6 +5,10 @@
 	--fourth: 		#232B36;
 	--fiveth: 		#192433;
 	--sixth: 		#101F33;
+
+	--full-height:	100vh;
+	--full-width:	100vw;
+	--zero: 		0;
 }
 
 * {
@@ -18,19 +22,40 @@ body {
 	width: 100%;
 }
 
+body {
+	background-color: var(--primary);
+}
+
+/* Framework */
+
+.hidden {
+	visibility: hidden;
+}
+
+.no-display {
+	display: none;
+}
+
+.display-flex {
+	display: flex;
+}
+
+.display-block {
+	display: block;
+}
+
+.display-grid {
+	display: grid;
+}
+
+/* End of Framework */
+
 #container {
-/* Sizes */
 	height: 100vh;
 	width: 100vw;
-
-/* Colors */
-	background-color: #aaa;
-
-/* Content Spacing */
+	background-color: var(--primary);
 	box-sizing: border-box;
 	overflow: hidden;
-
-/* Flexbox */
 	display: flex;
 	flex-direction: column;
 }
@@ -47,7 +72,7 @@ body {
 	align-items: center;
 }
 
-#brand {
+#topbar_header {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -56,12 +81,18 @@ body {
 	font-size: 1rem;
 }
 
-#sitename {
-	font-size: 1rem;
+#header_brand {
+	display: flex;
 }
 
-#header {
-	display: flex;
+.icon {
+	margin-right: 1.5rem;
+	width: 25px;
+	box-sizing: border-box;
+}
+
+#brandname {
+	font-size: 1rem;
 }
 
 .btn {
@@ -81,19 +112,19 @@ body {
 	color: black;
 }
 
-#searchbox {
+#topbar_search {
 	width: 60vw;
 }
 
-#searchbox form {
+#topbar_search form {
 	display: flex;
 }
 
-#myform {
+#googleSearch {
 	width: 80%;
 }
 
-#userbox {
+#topbar_userbox {
 	width: 20vw;
 	display: flex;
 	align-items: center;
@@ -110,7 +141,7 @@ body {
 	border-radius: 2rem;
 }
 
-#mainbox {
+#mainboard {
 	display: flex;
 }
 
@@ -124,68 +155,91 @@ body {
 	flex-direction: column;
 }
 
-.panelDefault {
+.panel-Default {
 	width: 200px;
 }
 
-.panelToggled {
+.panel-Toggled {
 	width: 0vw;
 }
 
-.panelItem {
-	height: 3rem;
+.panel_item {
+	min-height: 3rem;
 	background-color: var(--fourth);
 	box-sizing: border-box;
-	padding: 1rem;
+/*	padding: 1rem;*/
 	margin-bottom: 1rem;
 	cursor: pointer;
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+/*	justify-content: space-between;*/
 }
 
-.panelItem.active {
+.panel_item.active {
 	background-color: var(--secondary);
 }
 
-.panelItem:hover {
+.panel_item:hover {
 	background-color: var(--tertiary);
 }
 
-.panelItem:active {
+.panel_item:active {
 	background-color: gray;
 }
 
-.panelItemGroup {
+.item_wrapper {
 	display: flex;
+	padding: 1rem;
 }
 
-.icon {
+.item_icon {
 	margin-right: 1.5rem;
 	width: 25px;
 	box-sizing: border-box;
 }
 
-.panelItemTitle {
+.item_title {
 	width: 100px;
 }
 
-.panelItemMenu {
-	width: 25px;
-	text-align: right;
+.item_expanded::after {
+	content: "▼";
 }
 
-#appbox {
+.item_collapsed::after {
+	content: "►"
+}
+
+.item_menu {
+	flex-direction: column;
+	background-color: var(--fourth);
+}
+
+.menu_option {
+	padding: 1rem;
+	margin-left: calc(25px + 1.5rem + 25px);
+}
+
+.menu_option:hover {
+	background-color: var(--tertiary);
+}
+
+.menu_option:active {
+	background-color: gray;
+}
+
+#viewboard {
 	background-color: var(--secondary);
 	height: 90vh;
 	box-sizing: border-box;
 	padding: 1rem;
 }
 
-.appboxDefault {
+.viewboard-Default {
 	width: calc(100vw - 200px);
 }
 
-.appboxToggled {
+.viewboard-Toggled {
 	width: 100vw;
 }
 
@@ -226,15 +280,15 @@ button[type="submit"]:hover {
 
 @media (max-width: 1024px) {
 
-	#brand {
+	#topbar_header {
 		width: 20vw;
 	}
 
-	#searchbox {
+	#topbar_search {
 		width: 60vw;
 	}
 
-	#userbox {
+	#topbar_userbox {
 		width: 20vw;
 	}
 
@@ -242,35 +296,35 @@ button[type="submit"]:hover {
 
 @media (max-width: 768px) {
 
-	#brand {
+	#topbar_header {
 		width: 30vw;
 	}
 
-	#searchbox {
+	#topbar_search {
 		width: 40vw;
 	}
 
-	#userbox {
+	#topbar_userbox {
 		width: 30vw;
 	}
 
-	.panelDefault {
+	.panel-Default {
 		width: 50px;
 	}
 
-	.panelDefault:hover {
+	.panel-Default:hover {
 		width: 250px;
 	}
 
-	.appboxDefault {
+	.viewboard-Default {
 		width: calc(100vw - 50px);
 	}
 
-	.panelToggled {
+	.panel-Toggled {
 		width: 0;
 	}
 
-	.appboxToggled {
+	.viewboard-Toggled {
 		width: 100vw;
 	}
 
@@ -278,36 +332,36 @@ button[type="submit"]:hover {
 
 @media (max-width: 475px) {
 
-	#brand {
+	#topbar_header {
 		width: 25vw;
 	}
 
-	#searchbox {
+	#topbar_search {
 		width: 50vw;
 	}
 
-	#userbox {
+	#topbar_userbox {
 		width: 25vw;
 	}
 
-	#sitename,
+	#brandname,
 	#username {
 		display: none;
 	}
 
-	.panelDefault {
+	.panel-Default {
 		width: 0;
 	}
 
-	.appboxDefault {
+	.viewboard-Default {
 		width: 100vw;
 	}
 
-	.panelToggled {
+	.panel-Toggled {
 		width: 100vw;
 	}
 
-	.appboxToggled {
+	.viewboard-Toggled {
 		display: none;
 	}
 

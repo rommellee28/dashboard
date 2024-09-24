@@ -1,0 +1,33 @@
+{
+	"type": [
+		"fa-solid",
+		"fa-regular",
+		"fa-regular",
+		"fa-solid",
+		"fa-solid",
+		"fa-solid"
+	],
+	"icons": [
+		"fa-home",
+		"fa-calendar",
+		"fa-bookmark",
+		"fa-chalkboard-user",
+		"fa-music",
+		"fa-list"
+	],
+	"titles": [
+		"Home",
+		"Calendar",
+		"Links",
+		"Tutorials",
+		"Music",
+		{
+			"title": "Apps",
+			"components": [
+				"HTML",
+				"CSS",
+				"Javascript"
+			]
+		}
+	]
+}
