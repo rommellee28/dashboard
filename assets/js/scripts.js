@@ -50,7 +50,6 @@ const mainFunc = () => {
 			wrapper.classList.add("item_wrapper");
 			icon.classList.add("item_icon", data.type[i], data.icons[i]);
 			title.classList.add("item_title");
-			
 
 			// Value if it's an object
 			if (typeof data.titles[i] == "object") {
@@ -84,18 +83,32 @@ const mainFunc = () => {
 					// Add text
 					element.innerText = data.titles[i].components[j];
 
+					// Add event listener
+					element.addEventListener(
+						"click", 
+						function(){
+							alert("Go " + data.titles[i].components[j]);
+						});
+
 				}
 
 				// Add event listeners
 				wrapper.addEventListener(
 					"click", 
-					function (){
+					function (e){
 						wrapper.classList.toggle("item_collapsed");
 						wrapper.classList.toggle("item_expanded");
 						menu.classList.toggle("no-display");
 					});
 
 			} else {
+
+				// Add event listeners
+				item.addEventListener(
+					"click",
+					function (){
+						alert("Clicked " + data.titles[i]);
+				});
 
 				title.innerText = data.titles[i];
 
