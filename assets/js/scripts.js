@@ -21,16 +21,15 @@ const mainFunc = () => {
 			if (response.ok) {
 				return response.json();
 			} else {
-				throw new Error("Error en la respuesta: " + response.status);
+				throw new Error("Error in response: " + response.status);
 			}
 		})
 		.then(data => {
-			console.log("Data received: ", data);
-			load(data);
-		})
+			load_items(data);
+		});
 
 	// Load items
-	const load = data => {
+	const load_items = data => {
 		for (let i = 0; i < data.titles.length; i++) {
 
 			// DOM Nodes
@@ -48,8 +47,33 @@ const mainFunc = () => {
 			// Add classes
 			item.classList.add("panel_item");
 			wrapper.classList.add("item_wrapper");
-			icon.classList.add("item_icon", data.type[i], data.icons[i]);
+			icon.classList.add("item_icon", data.types[i], data.icons[i]);
 			title.classList.add("item_title");
+
+			// Default option load
+			if (i == 0) {
+
+				// Set class "active" for default element
+				item.classList.toggle("active");
+
+				// Load default element content
+				fetch("userModules/home.html")
+					.then(response => {
+						if (response.ok) {
+							return response.text();
+						} else {
+							throw new Error("Error in response " + response.status);
+						}
+					})
+					.then(data => {
+						default_load(data);
+					});
+
+				const default_load = data => {
+					viewboard.innerHTML = data;
+				}
+
+			}
 
 			// Value if it's an object
 			if (typeof data.titles[i] == "object") {
@@ -77,17 +101,31 @@ const mainFunc = () => {
 					// Append
 					menu.appendChild(element);
 
-					// Add classes
+					// Add class
 					element.classList.add("menu_option");
 
 					// Add text
 					element.innerText = data.titles[i].components[j];
 
+					const load_content = data => {
+						viewboard.innerHTML = data;
+					}
+
 					// Add event listener
 					element.addEventListener(
 						"click", 
-						function(){
-							alert("Go " + data.titles[i].components[j]);
+						function () {
+							fetch("/userModules/" + data.titles[i].title + "/" + data.titles[i].components[j] + ".html")
+							.then(response => {
+								if (response.ok) {
+									return response.text();
+								} else {
+									throw new Error("Error in response: " + response.status);
+								}
+							})
+							.then (data => {
+								load_content(data);
+							});
 						});
 
 				}
@@ -95,7 +133,7 @@ const mainFunc = () => {
 				// Add event listeners
 				wrapper.addEventListener(
 					"click", 
-					function (e){
+					function () {
 						wrapper.classList.toggle("item_collapsed");
 						wrapper.classList.toggle("item_expanded");
 						menu.classList.toggle("no-display");
@@ -103,11 +141,27 @@ const mainFunc = () => {
 
 			} else {
 
+				const load_content = data => {
+					viewboard.innerHTML = data;
+				}
+
 				// Add event listeners
 				item.addEventListener(
 					"click",
-					function (){
-						alert("Clicked " + data.titles[i]);
+					function () {
+
+						fetch("/userModules/" + data.titles[i] + ".html")
+							.then(response => {
+								if (response.ok) {
+									return response.text();
+								} else {
+									throw new Error("Error in response: " + response.status);
+								}
+							})
+							.then (data => {
+								load_content(data);
+							});
+
 				});
 
 				title.innerText = data.titles[i];
@@ -120,6 +174,7 @@ const mainFunc = () => {
 
 // Function load
 window.onload = mainFunc;
+
 
 /* Panel Toggle */
 

@@ -1,5 +1,5 @@
 {
-	"type": [
+	"types": [
 		"fa-solid",
 		"fa-regular",
 		"fa-regular",
@@ -18,7 +18,7 @@
 	"titles": [
 		"Home",
 		"Calendar",
-		"Links",
+		"Bookmarks",
 		"Tutorials",
 		"Music",
 		{
