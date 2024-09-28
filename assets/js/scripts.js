@@ -169,8 +169,33 @@ const mainFunc = () => {
 			}
 
 		} // End of for
-	} // End of load function
+
+		// Group every clickable item
+		const items = document.querySelectorAll(".panel_item:not(.menu_dropdown), .menu_option");
+
+		// Toggle active status
+		const toggler = (id, el) => {
+			for (let i = 0; i < items.length; i++) {
+				if (i == id) {
+					items[i].classList.add("active");
+				} else {
+					items[i].classList.remove("active");
+				}
+			}
+		}
+
+		for (let i = 0; i < items.length; i++) {
+			items[i].addEventListener(
+				"click", 
+				function () {
+					toggler(i, items[i]);
+			});
+		}
+
+	} // End of load_items function
 } // End of main function
+
+
 
 // Function load
 window.onload = mainFunc;

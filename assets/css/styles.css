@@ -175,16 +175,13 @@ body {
 /*	justify-content: space-between;*/
 }
 
-.panel_item.active {
+.panel_item.active,
+.menu_option.active {
 	background-color: var(--secondary);
 }
 
-.panel_item:hover {
+.panel_item:hover:not(.active) {
 	background-color: var(--tertiary);
-}
-
-.panel_item:active {
-	background-color: gray;
 }
 
 .item_wrapper {
@@ -220,12 +217,8 @@ body {
 	margin-left: calc(25px + 1.5rem + 25px);
 }
 
-.menu_option:hover {
+.menu_option:hover:not(.active) {
 	background-color: var(--tertiary);
-}
-
-.menu_option:active {
-	background-color: gray;
 }
 
 #viewboard {
