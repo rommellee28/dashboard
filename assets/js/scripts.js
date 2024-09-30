@@ -195,11 +195,8 @@ const mainFunc = () => {
 	} // End of load_items function
 } // End of main function
 
-
-
 // Function load
 window.onload = mainFunc;
-
 
 /* Panel Toggle */
 
