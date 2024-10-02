@@ -2,7 +2,7 @@ const mainFunc = () => {
 	// Console msg
 	let estilos = `
 		color: #235298;
-		font-size: 20px;
+		font-size: 25px;
 		font-family: arial;
 	`;
 	console.log("%c El script funciona", estilos);

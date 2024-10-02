@@ -16,9 +16,37 @@
 		color: #b5b5b5;
 	}
 
+	.borders {
+		border: solid 1pt var(--gray);
+		border-radius: .2rem;
+	}
+
+	.clock {
+		min-height: 4rem;
+	}
+
+	.clock_date {
+		border-bottom: solid 1pt #000;
+		margin-bottom: 1rem;
+	}
+
+	.clock_time {
+		font-family: monospace;
+		font-size: 2rem;
+	}
+
 </style>
 
 <div class="view">
 	<h2><i class="fa fa-home gray"></i> Welcome to your Dashboard!</h2>
 	<h3>Here you can edit what info you want to show</h3>
+
+	<div class="row">
+		<div class="col-4 col-8-offset borders">
+			<div class="clock">
+				<div class="clock_date">Getting Date and time</div>
+				<div class="clock_time"></div>
+			</div>
+		</div>
+	</div>
 </div>
