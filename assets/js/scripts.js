@@ -57,7 +57,7 @@ const mainFunc = () => {
 				item.classList.toggle("active");
 
 				// Load default element content
-				fetch("userModules/home.html")
+				fetch("/userModules/home.html")
 					.then(response => {
 						if (response.ok) {
 							return response.text();
